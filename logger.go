@@ -253,6 +253,7 @@ func (log *Logger) clone() *Logger {
 	return &copy
 }
 
+// 理解CheckedEntry的关键
 func (log *Logger) check(lvl zapcore.Level, msg string) *zapcore.CheckedEntry {
 	// check must always be called directly by a method in the Logger interface
 	// (e.g., Check, Info, Fatal).

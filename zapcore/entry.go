@@ -213,6 +213,7 @@ func (ce *CheckedEntry) Write(fields ...Field) {
 
 	var err error
 	for i := range ce.cores {
+		// 写日志信息到文件中
 		err = multierr.Append(err, ce.cores[i].Write(ce.Entry, fields))
 	}
 	if ce.ErrorOutput != nil {

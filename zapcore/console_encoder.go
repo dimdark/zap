@@ -63,6 +63,8 @@ func (c consoleEncoder) Clone() Encoder {
 	return consoleEncoder{c.jsonEncoder.Clone().(*jsonEncoder)}
 }
 
+// 例子:
+// 2020-06-26 22:14:40.62610       INFO    zap-number-log  ex0003/main.go:76       zap test        {"requestId": "0-0-0-0", "now": "2020-06-26 22:14:40.62610", "number": 0}
 func (c consoleEncoder) EncodeEntry(ent Entry, fields []Field) (*buffer.Buffer, error) {
 	line := bufferpool.Get()
 

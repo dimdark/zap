@@ -320,6 +320,10 @@ func (enc *jsonEncoder) clone() *jsonEncoder {
 	return clone
 }
 
+// !!! 重点代码
+// 日志编码成json字符串的逻辑均在这里
+// 例子:
+// {"level":"INFO","ts":"2020-06-26 22:20:51.62610","zap-number-log":"zap-number-log","file":"ex0003/main.go:91","msg":"zap test","requestId":"498080-498080-498080-498080","now":"2020-06-26 22:20:51.62610","number":498080}
 func (enc *jsonEncoder) EncodeEntry(ent Entry, fields []Field) (*buffer.Buffer, error) {
 	final := enc.clone()
 	final.buf.AppendByte('{')
